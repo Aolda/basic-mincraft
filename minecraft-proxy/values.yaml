@@ -81,7 +81,13 @@ sidecarContainers: []
 #           - port=2049
 #           - hard
 #           - vers=4
-extraVolumes: []
+extraVolumes:
+  - volumeMounts:
+      - name: nfs
+        mountPath: /mnt/volume
+        readOnly: true
+    persistentVolumeClaim:
+      claimName: my-pvc
 
 minecraftProxy:
   # This can be one of "BUNGEECORD", "WATERFALL", "VELOCITY", "CUSTOM"

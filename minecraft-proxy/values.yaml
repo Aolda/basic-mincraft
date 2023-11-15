@@ -144,11 +144,11 @@ minecraftProxy:
    servers:
      lobby:
        motd: '&1Just another BungeeCord123 - Forced Host'
-       address: 10.43.14.128:25565
+       address: 10.42.0.151:25565
        restricted: false
      creative:
        motd: Welcome to the Creative world
-       address: 10.43.14.126:25565
+       address: 10.42.0.152:25565
        restricted: false
    listeners:
    - query_port: 25577

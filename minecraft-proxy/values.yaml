@@ -123,7 +123,7 @@ minecraftProxy:
   # externalTrafficPolicy: Cluster
   externalIPs:
   # If set, this overrides the default config file path
-  configFilePath: /server/config.yml
+  # configFilePath: /server/config.yml
   # This can be set to the contents of your config file (only works with yaml currently)
   config:
     ip_forward: false

@@ -123,7 +123,7 @@ minecraftProxy:
   # externalTrafficPolicy: Cluster
   externalIPs:
   # If set, this overrides the default config file path
-  configFilePath: config.yml
+  configFilePath: ./config.yaml
   # This can be set to the contents of your config file (only works with yaml currently)
   # config: |
   #  player_limit: -1
@@ -240,7 +240,7 @@ persistence:
   # storageClass: "-"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
-    enabled: false
+    enabled: true
     # existingClaim: nil
     Size: 1Gi
 

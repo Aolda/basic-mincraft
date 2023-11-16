@@ -169,7 +169,7 @@ minecraftServer:
   # Max connected players.
   maxPlayers: 20
   # This sets the maximum possible size in blocks, expressed as a radius, that the world border can obtain.
-  maxWorldSize: 100
+  maxWorldSize: 10000
   # Allows players to travel to the Nether.
   allowNether: default
   # Allows server to announce when a player gets an achievement.

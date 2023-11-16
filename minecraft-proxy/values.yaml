@@ -14,7 +14,7 @@ resources:
     memory: 512Mi
     cpu: 500m
 
-podSecurityContextㄴ:
+podSecurityContext:
   runAsUser: 1000
   runAsGroup: 3000
   runAsNonRoot: true
@@ -161,8 +161,8 @@ minecraftProxy:
      host: 0.0.0.0:25577
      forced_hosts:
        pvp.md-5.net: pvp
-     max_players: 3
-     tab_size: 60
+     max_players: 5
+     tab_size: 100
      ping_passthrough: false
      force_default_server: true
      proxy_protocol: false

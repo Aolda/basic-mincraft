@@ -244,7 +244,7 @@ persistence:
   # storageClass: "-"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
-    enabled: true
+    enabled: false
     # existingClaim: nil
     Size: 1Gi
 

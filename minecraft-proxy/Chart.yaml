@@ -24,4 +24,4 @@ maintainers:
 name: minecraft-proxy
 sources:
 - https://github.com/itzg/minecraft-server-charts
-version: 3.2.0
+version: 3.3.1

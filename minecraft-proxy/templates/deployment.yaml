@@ -156,6 +156,8 @@ spec:
           mountPath: /tmp
         - name: datadir
           mountPath: /server
+        - name: tmp
+          mountPath: /tmp
         {{- if .Values.minecraftProxy.config }}
         - name: config
           mountPath: {{ .Values.minecraftProxy.configFilePath }}
@@ -187,7 +189,7 @@ spec:
       {{- end }}
       {{- if .Values.minecraftProxy.config }}
       - name: config
-        configMap:
+        configMap: 
           name: {{ include "proxy.fullname" . }}-config
       {{- end }}
       {{- range .Values.extraVolumes }}

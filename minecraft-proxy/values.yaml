@@ -14,7 +14,7 @@ resources:
     memory: 512Mi
     cpu: 500m
 
-podSecurityContext:
+podSecurityContextㄴ:
   runAsUser: 1000
   runAsGroup: 3000
   runAsNonRoot: true
@@ -114,7 +114,7 @@ minecraftProxy:
   jvmXXOpts: ""
   # DEPRECATED: use top-level rconServiceAnnotations instead
   serviceAnnotations: {}
-  serviceType: ClusterIP
+  serviceType: NodePort
   ## Set the port used if the serviceType is NodePort
   # nodePort:
   loadBalancerIP:
@@ -123,56 +123,60 @@ minecraftProxy:
   # externalTrafficPolicy: Cluster
   externalIPs:
   # If set, this overrides the default config file path
-  configFilePath: /server/config.yml
+  # configFilePath: /server/config.yml
   # This can be set to the contents of your config file (only works with yaml currently)
-  # config: |
-  #  player_limit: -1
-  #  ip_forward: false
-  #  permissions:
-  #    default:
-  #    - bungeecord.command.server
-  #    - bungeecord.command.list
-  #    admin:
-  #    - bungeecord.command.alert
-  #    - bungeecord.command.end
-  #    - bungeecord.command.ip
-  #    - bungeecord.command.reload
-  #  timeout: 30000
-  #  log_pings: true
-  #  log_commands: false
-  #  online_mode: true
-  #  servers:
-  #    lobby:
-  #      motd: '&1Just another BungeeCord - Forced Host'
-  #      address: localhost:25565
-  #      restricted: false
-  #  listeners:
-  #  - query_port: 25577
-  #    motd: '&1Another Bungee server'
-  #    priorities:
-  #    - lobby
-  #    bind_local_address: true
-  #    tab_list: GLOBAL_PING
-  #    query_enabled: false
-  #    host: 0.0.0.0:25577
-  #    forced_hosts:
-  #      pvp.md-5.net: pvp
-  #    max_players: 1
-  #    tab_size: 60
-  #    ping_passthrough: false
-  #    force_default_server: false
-  #    proxy_protocol: false
-  #  disabled_commands:
-  #  - disabledcommandhere
-  #  network_compression_threshold: 256
-  #  groups:
-  #    md_5:
-  #    - admin
-  #  connection_throttle: 4000
-  #  connection_throttle_limit: 3
-  #  stats: f2876aa6-74d2-468c-90ee-1377111f1c9f
-  #  forge_support: false
-  #  inject_commands: false
+  config: |
+   player_limit: -1
+   ip_forward: true
+   permissions:
+     default:
+     - bungeecord.command.server
+     - bungeecord.command.list
+     admin:
+     - bungeecord.command.alert
+     - bungeecord.command.end
+     - bungeecord.command.ip
+     - bungeecord.command.reload
+   timeout: 30000
+   log_pings: true
+   log_commands: false
+   online_mode: false
+   servers:
+     lobby:
+       motd: '&1Just another BungeeCord123 - Forced Host'
+       address: 192.168.19.145:25565
+       restricted: false
+     creative:
+       motd: Welcome to the Creative world
+       address: 192.168.212.109:25565
+       restricted: false
+   listeners:
+   - query_port: 25577
+     motd: '&1Another Bungee server123'
+     priorities:
+     - creative
+     bind_local_address: true
+     tab_list: GLOBAL_PING
+     query_enabled: false
+     host: 0.0.0.0:25577
+     forced_hosts:
+       pvp.md-5.net: pvp
+     max_players: 3
+     tab_size: 60
+     ping_passthrough: false
+     force_default_server: true
+     proxy_protocol: false
+   disabled_commands:
+   - disabledcommandhere
+   network_compression_threshold: 256
+   groups:
+     md_5:
+     - admin
+   connection_throttle: 4000
+   connection_throttle_limit: 3
+   stats: f2876aa6-74d2-468c-90ee-1377111f1c9f
+   forge_support: false
+   inject_commands: false
 
   rcon:
     # If you enable this, make SURE to change your password below.
@@ -240,7 +244,7 @@ persistence:
   # storageClass: "-"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
-    enabled: false
+    enabled: true
     # existingClaim: nil
     Size: 1Gi
 

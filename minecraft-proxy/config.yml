@@ -16,11 +16,11 @@ online_mode: false
 servers:
   lobby:
     motd: '&1Just another BungeeCord123 - Forced Host'
-    address: 10.43.14.128:25565
+    address: 192.168.212.109:25565
     restricted: false
   creative:
     motd: Welcome to the Creative world
-    address: 10.43.14.126:25565
+    address: 192.168.19.145:25565
     restricted: false
 listeners:
   - query_port: 25577

@@ -14,7 +14,7 @@ resources:
     memory: 512Mi
     cpu: 500m
 
-podSecurityContextㄴ:
+podSecurityContext:
   runAsUser: 1000
   runAsGroup: 3000
   runAsNonRoot: true
@@ -114,7 +114,7 @@ minecraftProxy:
   jvmXXOpts: ""
   # DEPRECATED: use top-level rconServiceAnnotations instead
   serviceAnnotations: {}
-  serviceType: NodePort
+  serviceType: ClusterIP
   ## Set the port used if the serviceType is NodePort
   # nodePort:
   loadBalancerIP:
@@ -123,11 +123,11 @@ minecraftProxy:
   # externalTrafficPolicy: Cluster
   externalIPs:
   # If set, this overrides the default config file path
-  # configFilePath: /server/config.yml
+  #configFilePath: /server/config.yml
   # This can be set to the contents of your config file (only works with yaml currently)
   config: |
    player_limit: -1
-   ip_forward: true
+   ip_forward: false
    permissions:
      default:
      - bungeecord.command.server
@@ -140,31 +140,27 @@ minecraftProxy:
    timeout: 30000
    log_pings: true
    log_commands: false
-   online_mode: false
+   online_mode: true
    servers:
      lobby:
-       motd: '&1Just another BungeeCord123 - Forced Host'
-       address: 192.168.19.145:25565
-       restricted: false
-     creative:
-       motd: Welcome to the Creative world
-       address: 192.168.212.109:25565
+       motd: '&1Just another BungeeCord - Forced Host'
+       address: localhost:25565
        restricted: false
    listeners:
    - query_port: 25577
-     motd: '&1Another Bungee server123'
+     motd: '&1Another Bungee server'
      priorities:
-     - creative
+     - lobby
      bind_local_address: true
      tab_list: GLOBAL_PING
      query_enabled: false
      host: 0.0.0.0:25577
      forced_hosts:
        pvp.md-5.net: pvp
-     max_players: 3
+     max_players: 1
      tab_size: 60
      ping_passthrough: false
-     force_default_server: true
+     force_default_server: false
      proxy_protocol: false
    disabled_commands:
    - disabledcommandhere
@@ -244,7 +240,7 @@ persistence:
   # storageClass: "-"
   dataDir:
     # Set this to false if you don't care to persist state between restarts.
-    enabled: true
+    enabled: false
     # existingClaim: nil
     Size: 1Gi
 
